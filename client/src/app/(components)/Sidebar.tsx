@@ -11,7 +11,7 @@ import {
   User,
 } from "lucide-react";
 import React from "react";
-import { useAppDispatch, useAppSelector } from "../redux";
+import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsSidebarCollapsed } from "@/state";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -37,10 +37,10 @@ const SidebarLink = ({
     <Link href={href}>
       <div
         className={`cursor-pointer flex items-center ${
-          isCollapsed ? "justify-center py-4" : "justify-start px8 py-4"
+          isCollapsed ? "justify-center py-4" : "justify-start px-8 py-4"
         } hover:text-blue-500 hover:bg-blue-100 gap-3 transition-colors ${
           isActive ? "bg-blue-200 text-white" : ""
-        }`}
+        }}`}
       >
         <Icon className="w-6 h-6 !text-gray-700" />
         <span
@@ -57,28 +57,28 @@ const SidebarLink = ({
 
 const Sidebar = () => {
   const dispatch = useAppDispatch();
-  const isSideBarCollapsed = useAppSelector(
+  const isSidebarCollapsed = useAppSelector(
     (state) => state.global.isSidebarCollapsed
   );
   const toggleSidebar = () => {
-    dispatch(setIsSidebarCollapsed(!isSideBarCollapsed));
+    dispatch(setIsSidebarCollapsed(!isSidebarCollapsed));
   };
 
   const sidebarClassNames = `fixed flex flex-col ${
-    isSideBarCollapsed ? "w-0 md:w-16" : "w-72 md:w-64"
+    isSidebarCollapsed ? "w-0 md:w-16" : "w-72 md:w-64"
   } bg-white transition-all duration-300 overflow-hidden h-full shadow-md z-40`;
 
   return (
     <div className={sidebarClassNames}>
       <div
-        className={`d flex gap-3 justify-between md:justify-normal items-center pt-8 ${
-          isSideBarCollapsed ? "px-5" : "px-8"
+        className={`flex gap-3 justify-between md:justify-normal items-center pt-8 ${
+          isSidebarCollapsed ? "px-5" : "px-8"
         }`}
       >
         <div>logo</div>
         <h1
           className={`${
-            isSideBarCollapsed ? "hidden" : "block"
+            isSidebarCollapsed ? "hidden" : "block"
           } font-extrabold text-2xl`}
         >
           GBSTOCK
@@ -96,41 +96,41 @@ const Sidebar = () => {
           href="/dashboard"
           icon={Layout}
           label="Dashboard"
-          isCollapsed={isSideBarCollapsed}
+          isCollapsed={isSidebarCollapsed}
         />
         <SidebarLink
           href="/inventory"
           icon={Archive}
           label="Inventário"
-          isCollapsed={isSideBarCollapsed}
+          isCollapsed={isSidebarCollapsed}
         />
         <SidebarLink
           href="/products"
           icon={Clipboard}
           label="Produtos"
-          isCollapsed={isSideBarCollapsed}
+          isCollapsed={isSidebarCollapsed}
         />
         <SidebarLink
           href="/users"
           icon={User}
           label="Usuários"
-          isCollapsed={isSideBarCollapsed}
+          isCollapsed={isSidebarCollapsed}
         />
         <SidebarLink
           href="/settings"
           icon={SlidersHorizontal}
           label="Configurações"
-          isCollapsed={isSideBarCollapsed}
+          isCollapsed={isSidebarCollapsed}
         />
         <SidebarLink
           href="/expenses"
           icon={CircleDollarSign}
           label="Despesas"
-          isCollapsed={isSideBarCollapsed}
+          isCollapsed={isSidebarCollapsed}
         />
       </div>
 
-      <div className={`${isSideBarCollapsed ? "hidden" : "block"} mb-10`}>
+      <div className={`${isSidebarCollapsed ? "hidden" : "block"} mb-10`}>
         <p className="text-center text-xs text-gray-500">&copy; 2024 Gbstock</p>
       </div>
     </div>
