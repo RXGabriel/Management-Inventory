@@ -14,7 +14,6 @@ import {
 const CardPurchaseSummary = () => {
   const { data, isLoading } = useGetDashboardMetricsQuery();
   const purchaseData = data?.purchaseSummary || [];
-
   const lastDataPoint = purchaseData[purchaseData.length - 1] || null;
 
   return (
@@ -25,14 +24,14 @@ const CardPurchaseSummary = () => {
         <>
           <div>
             <h2 className="text-lg font-semibold mb-2 px-7 pt-5">
-              Purchase Summary
+              Resumo de compra
             </h2>
             <hr />
           </div>
 
           <div>
             <div className="mb-4 mt-7 px-7">
-              <p className="text-xs text-gray-400">Purchased</p>
+              <p className="text-xs text-gray-400">Comprado</p>
               <div className="flex items-center">
                 <p className="text-2xl font-bold">
                   {lastDataPoint
