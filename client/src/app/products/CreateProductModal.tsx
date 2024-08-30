@@ -97,7 +97,7 @@ const CreateProductModal = ({
           />
 
           <label htmlFor="rating" className={labelCssStyles}>
-            Rating
+            Nota
           </label>
           <input
             type="number"
