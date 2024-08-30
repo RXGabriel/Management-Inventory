@@ -11,6 +11,7 @@ import {
   User,
 } from "lucide-react";
 import React from "react";
+import Image from "next/image";
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsSidebarCollapsed } from "@/state";
 import { usePathname } from "next/navigation";
@@ -38,9 +39,11 @@ const SidebarLink = ({
       <div
         className={`cursor-pointer flex items-center ${
           isCollapsed ? "justify-center py-4" : "justify-start px-8 py-4"
-        } hover:text-blue-500 hover:bg-blue-100 gap-3 transition-colors ${
+        }
+        hover:text-blue-500 hover:bg-blue-100 gap-3 transition-colors ${
           isActive ? "bg-blue-200 text-white" : ""
-        }}`}
+        }
+      }`}
       >
         <Icon className="w-6 h-6 !text-gray-700" />
         <span
@@ -75,7 +78,13 @@ const Sidebar = () => {
           isSidebarCollapsed ? "px-5" : "px-8"
         }`}
       >
-        <div>logo</div>
+        <Image
+          src="/assets/logo.png"
+          alt="gbstock-logo"
+          width={27}
+          height={27}
+          className="rounded w-8"
+        />
         <h1
           className={`${
             isSidebarCollapsed ? "hidden" : "block"
