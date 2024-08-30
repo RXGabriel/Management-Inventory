@@ -1,13 +1,8 @@
-import React, {
-  ChangeEvent,
-  ChangeEventHandler,
-  FormEvent,
-  useState,
-} from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import { v4 } from "uuid";
 import Header from "@/app/(components)/header";
 
-type ProductFormProps = {
+type ProductFormData = {
   name: string;
   price: number;
   stockQuantity: number;
@@ -17,7 +12,7 @@ type ProductFormProps = {
 type CreateProductModalProps = {
   isOpen: boolean;
   onClose: () => void;
-  onCreate: (formaData: ProductFormProps) => void;
+  onCreate: (formData: ProductFormData) => void;
 };
 
 const CreateProductModal = ({
@@ -60,8 +55,8 @@ const CreateProductModal = ({
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-20">
       <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
-        <Header name="Adicionar um novo produto" />
-        <form onSubmit={handleSubmit} className="mt-5 ">
+        <Header name="Adicionar novo produto" />
+        <form onSubmit={handleSubmit} className="mt-5">
           <label htmlFor="productName" className={labelCssStyles}>
             Nome do Produto
           </label>
@@ -80,15 +75,15 @@ const CreateProductModal = ({
           </label>
           <input
             type="number"
-            name="number"
-            placeholder="Preço"
+            name="price"
+            placeholder="Price"
             onChange={handleChange}
             value={formData.price}
             className={inputCssStyles}
             required
           />
 
-          <label htmlFor="productName" className={labelCssStyles}>
+          <label htmlFor="stockQuantity" className={labelCssStyles}>
             Quantidade no estoque
           </label>
           <input
@@ -101,12 +96,12 @@ const CreateProductModal = ({
             required
           />
 
-          <label htmlFor="Rating" className={labelCssStyles}>
+          <label htmlFor="rating" className={labelCssStyles}>
             Rating
           </label>
           <input
             type="number"
-            name="Rating"
+            name="rating"
             placeholder="Rating"
             onChange={handleChange}
             value={formData.rating}
@@ -122,7 +117,7 @@ const CreateProductModal = ({
           </button>
           <button
             onClick={onClose}
-            type="submit"
+            type="button"
             className="ml-2 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700"
           >
             Cancelar
