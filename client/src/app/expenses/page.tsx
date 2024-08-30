@@ -13,7 +13,7 @@ import {
   Tooltip,
 } from "recharts";
 import Header from "@/app/(components)/header";
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 type AggregatedDataItem = {
   name: string;
@@ -28,8 +28,8 @@ type AggregatedData = {
 const Expenses = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [startDate, SetStartDate] = useState("");
-  const [endDate, SetEndDate] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   const {
     data: expensesData,
@@ -130,7 +130,7 @@ const Expenses = () => {
                 id="start-date"
                 name="start-date"
                 className={classNames.selectInput}
-                onChange={(e) => SetStartDate(e.target.value)}
+                onChange={(e) => setStartDate(e.target.value)}
               />
             </div>
             <div>
@@ -142,7 +142,7 @@ const Expenses = () => {
                 id="end-date"
                 name="end-date"
                 className={classNames.selectInput}
-                onChange={(e) => SetEndDate(e.target.value)}
+                onChange={(e) => setEndDate(e.target.value)}
               />
             </div>
           </div>
