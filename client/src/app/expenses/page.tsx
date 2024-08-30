@@ -92,7 +92,7 @@ const Expenses = () => {
   return (
     <div>
       <div className="mb-5">
-        <Header name="Expenses" />
+        <Header name="Despesas" />
         <p className="text-sm text-gray-500">
           Uma representação visual das despesas ao longo do tempo.
         </p>
