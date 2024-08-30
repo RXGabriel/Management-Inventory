@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import Header from "@/app/(components)/header";
 import Rating from "@/app/(components)/Rating";
 import CreateProductModal from "./CreateProductModal";
+import Image from "next/image";
 
 type ProductFormData = {
   name: string;
@@ -66,7 +67,7 @@ const Products = () => {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-between">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg-grid-cols-3 gap-10 justify-between">
         {isLoading ? (
           <div>Carregando...</div>
         ) : (
@@ -76,7 +77,15 @@ const Products = () => {
               className="border shadow rounded-md p-4 max-w-full w-full mx-auto"
             >
               <div className="flex flex-col items-center">
-                img
+                <Image
+                  src={`/assets/product${
+                    Math.floor(Math.random() * 3) + 1
+                  }.png`}
+                  alt={product.name}
+                  width={150}
+                  height={150}
+                  className="mb-3 rounded-2xl w-36 h-36"
+                />
                 <h3 className="text-lg text-gray-900 font-semibold">
                   {product.name}
                 </h3>
