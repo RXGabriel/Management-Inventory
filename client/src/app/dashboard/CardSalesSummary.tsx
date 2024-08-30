@@ -59,7 +59,7 @@ const CardSalesSummary = () => {
               <div className="text-lg font-medium">
                 <p className="text-xs text-gray-400">Valor</p>
                 <span className="text-2xl font-extrabold">
-                  $
+                  R$
                   {(totalValueSum / 1000000).toLocaleString("en", {
                     maximumFractionDigits: 2,
                   })}
@@ -97,7 +97,7 @@ const CardSalesSummary = () => {
                 />
                 <YAxis
                   tickFormatter={(value) => {
-                    return `$${(value / 1000000).toFixed(0)}m`;
+                    return `R$${(value / 1000000).toFixed(0)}m`;
                   }}
                   tick={{ fontSize: 12, dx: -1 }}
                   tickLine={false}
@@ -105,7 +105,7 @@ const CardSalesSummary = () => {
                 />
                 <Tooltip
                   formatter={(value: number) => [
-                    `$${value.toLocaleString("en")}`,
+                    `R$${value.toLocaleString("en")}`,
                   ]}
                   labelFormatter={(label) => {
                     const date = new Date(label);
@@ -129,7 +129,7 @@ const CardSalesSummary = () => {
           <div>
             <hr />
             <div className="flex justify-between items-center mt-6 text-sm px-7 mb-4">
-              <p>{salesData.length || 0} days</p>
+              <p>{salesData.length || 0} dias</p>
               <p className="text-sm">
                 Data da maior venda:{" "}
                 <span className="font-bold">{highestValueDate}</span>

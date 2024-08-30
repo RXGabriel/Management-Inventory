@@ -35,7 +35,7 @@ const CardPurchaseSummary = () => {
               <div className="flex items-center">
                 <p className="text-2xl font-bold">
                   {lastDataPoint
-                    ? numeral(lastDataPoint.totalPurchased).format("$0.00a")
+                    ? numeral(lastDataPoint.totalPurchased).format("R$0.00a")
                     : "0"}
                 </p>
                 {lastDataPoint && (
@@ -65,7 +65,7 @@ const CardPurchaseSummary = () => {
                 <YAxis tickLine={false} tick={false} axisLine={false} />
                 <Tooltip
                   formatter={(value: number) => [
-                    `$${value.toLocaleString("en")}`,
+                    `R$${value.toLocaleString("en")}`,
                   ]}
                   labelFormatter={(label) => {
                     const date = new Date(label);

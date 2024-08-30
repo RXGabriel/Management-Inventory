@@ -68,7 +68,7 @@ const CardExpenseSummary = () => {
                   >
                     {expenseCategories.map((entry, index) => (
                       <Cell
-                        key={`cell-${index}`}
+                        key={`cell-R${index}`}
                         fill={colors[index % colors.length]}
                       />
                     ))}
@@ -78,7 +78,7 @@ const CardExpenseSummary = () => {
 
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center basis-2/5">
                 <span className="font-bold text-xl">
-                  ${formattedTotalExpenses}
+                  R${formattedTotalExpenses}
                 </span>
               </div>
             </div>
@@ -107,7 +107,7 @@ const CardExpenseSummary = () => {
                   <p className="text-sm">
                     Média:{" "}
                     <span className="font-semibold">
-                      ${expenseSummary.totalExpenses.toFixed(2)}
+                      R${expenseSummary.totalExpenses.toFixed(2)}
                     </span>
                   </p>
                 </div>
